@@ -2,7 +2,9 @@
 
 ## Dependencies
 ```
+pip install numpy
 pip install matplotlib
+python -m pip install adafruit-circuitpython-servokit
 ```
 All code formatted in accordance with `flake8`.
 
@@ -15,4 +17,9 @@ First, we need to find the Rasberry Pi's IP.
 - Disconnect the robot from the setup and power off.
 
 Now we must establish a connection between the Pi and our local device.
+
+- Download FileZilla and connect via the application prompts.
+  - Ex. Username: pi, Password: kinematics2022
+- Use `ssh pi@xx.xx.xx.xx` on our local terminal.
+
 
