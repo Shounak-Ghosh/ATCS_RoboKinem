@@ -1,0 +1,59 @@
+Project Specific
+_______________________
+Enter the command below to activate CarPython environment:
+
+source ~/.venv/carPython/bin/activate
+'deactivate' to exit environment
+
+python specific commands (ex. 'pip') will not work outside the environment
+
+Connect to the robot: ssh
+
+
+General Commands
+-----------------------
+cat: Concatenate and print the content of files
+
+cd: Change directory
+
+chmod: Change access permissions
+
+chown: Change file owner and group
+
+cp: Copy one or more files to another location
+
+grep: Search file(s) for lines that match a given pattern
+
+head: Display the first lines of a file
+
+history: List command history
+
+less: Display output one screen at a time
+
+ls: List information about files(s)
+
+man: Help manual
+
+mkdir: Create new directories
+
+more: Display output one screen at a time
+
+mv: move or rename files or directories
+
+pbcopy: Copy data to the clipboard
+
+rm: Remove files
+
+su: Substitute user identity
+
+whereis: Locate a program
+
+which: Locate a program file in the user's path
+
+while: Loop command
+
+who: Print all usernames currently logged in
+
+whoami: Print the current user id and name
+
+zip: Package and compress (archive) files
