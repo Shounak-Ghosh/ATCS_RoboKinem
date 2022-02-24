@@ -20,6 +20,8 @@ Now we must establish a connection between the Pi and our local device.
 
 - Download FileZilla and connect via the application prompts.
   - Ex. Username: pi, Password: kinematics2022
-- Use `ssh pi@xx.xx.xx.xx` on our local terminal.
+- Transfer files accordingly.
+- Use `ssh pi@xx.xx.xx.xx` on our local terminal. Once a connection is established, we can execute python files on the Pi.
+
 
 
