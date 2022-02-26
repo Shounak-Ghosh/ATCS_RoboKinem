@@ -1,5 +1,6 @@
 import time
 import mecanum_wheel_movement.py as drive
+import simulation.circle as c
 
 ROBOT_LENGTH = 1
 ROBOT_WIDTH = 1
@@ -28,16 +29,18 @@ def move_vector(x, y, w):
     drive.rr.move(w4)
 
 
-def main():
-    n = 360
-    for i in range(n):
-        x = np.cos(i * np.pi / 180)  # converting degrees to radians
-        y = np.sin(i * np.pi / 180)
-        move_vector(x, y, 0)
-        time.sleep(.01)
-
+def move_circle():
+    point_list = c.generate_circle([-1, 0], [1, 0])
+    for i in range(len(point_list) - 1):
+        x_dist = point_list[i + 1][0] - point_list[i][0]
+        y_dist = point_list[i + 1][1] - point_list[i][1]
+        move_vector(x_dist, y_dist, 0)
+        time.sleep(.03)
     drive.stop_car()
 
+
+def main():
+    move_circle()
 
 if __name__ == '__main__':
     try:
