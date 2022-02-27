@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import circle as c
-import loop as l
+import shapes as s
 import time
 
 
@@ -18,10 +18,14 @@ def plot_vectors(point_list):
 
 def main():
     plt.figure("Circle Vector Simulation", figsize=(8, 8))
+    plt.ylabel("Vector values")
+    plt.xlabel("Time")
     plot_vectors(c.generate_circle([-1, 0], [1, 0]))
 
     plt.figure("Loop Vector Simulation", figsize=(8, 8))
-    plot_vectors(l.generate_loop([1, 1], [-1, 1], [-1, -1], [1, -1]))
+    plt.ylabel("Vector values")
+    plt.xlabel("Time")
+    plot_vectors(s.generate_loop([1, 1], [-1, 1], [-1, -1], [1, -1]))
     plt.show()
 
 
