@@ -4,7 +4,7 @@ script_dir = os.path.dirname(__file__)
 simulation_dir = os.path.join(script_dir, '..', 'simulation')
 sys.path.append(simulation_dir)
 import circle as c
-import loop as l
+import shapes as s
 
 
 
