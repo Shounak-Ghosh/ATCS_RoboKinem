@@ -5,7 +5,7 @@ Enter the command below to activate CarPython environment:
 source ~/.venv/carPython/bin/activate
 'deactivate' to exit environment
 
-python specific commands (ex. 'pip') will not work outside the environment
+python specific commands (ex. 'pip, flake8') will not work outside the environment
 
 Connect to the robot: ssh
 
