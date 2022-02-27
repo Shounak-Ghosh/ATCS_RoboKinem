@@ -4,10 +4,11 @@ import matplotlib.pyplot as plt
 import numpy as np
 import time
 
-script_dir = os.path.dirname( __file__ )
-simulation_dir = os.path.join( script_dir, '..','simulation' )
-sys.path.append( simulation_dir )
+script_dir = os.path.dirname(__file__)
+simulation_dir = os.path.join(script_dir, '..', 'simulation')
+sys.path.append(simulation_dir)
 import circle as c
+import loop as l
 
 
 def method1():
@@ -22,6 +23,7 @@ def method1():
         plt.draw()
     plt.show()
 
+
 def method2():
     point_list = c.generate_circle([-1, 0], [1, 0])
     # vector_list = []
@@ -30,8 +32,8 @@ def method2():
         y_dist = point_list[i + 1][1] - point_list[i][1]
         # vector_list.append([x_dist,y_dist])
         # plt.plot(x_dist,y_dist,'bo')
-        plt.plot(i, x_dist, 'ro')
-        plt.plot(i, y_dist, 'go')
+        plt.plot(i, x_dist, 'ro') # should be sin
+        plt.plot(i, y_dist, 'go') # should be -cos
         plt.draw()
     plt.show()
 
