@@ -20,6 +20,7 @@ def move_shape(point_list):
 
 def main():
     circle_point_list = c.generate_circle([-1, 0], [1, 0])
+    loop_point_list = l.generate_loop([1, 0], [0, 1], [-1, 0], [0, -1])
     move_shape(circle_point_list)
 
 if __name__ == '__main__':
