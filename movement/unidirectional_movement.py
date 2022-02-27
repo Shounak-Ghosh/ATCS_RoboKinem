@@ -1,12 +1,11 @@
 import time
 import mecanum_wheel_movement.py as drive
+
 script_dir = os.path.dirname(__file__)
 simulation_dir = os.path.join(script_dir, '..', 'simulation')
 sys.path.append(simulation_dir)
 import circle as c
 import shapes as s
-
-
 
 
 def move_shape(point_list):
@@ -22,6 +21,7 @@ def main():
     circle_point_list = c.generate_circle([-1, 0], [1, 0])
     loop_point_list = l.generate_loop([1, 0], [0, 1], [-1, 0], [0, -1])
     move_shape(circle_point_list)
+
 
 if __name__ == '__main__':
     try:

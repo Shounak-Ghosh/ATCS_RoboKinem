@@ -16,7 +16,6 @@ def plot_vectors(point_list):
         plt.draw()
 
 
-
 def main():
     plt.figure("Circle Vector Simulation", figsize=(8, 8))
     plot_vectors(c.generate_circle([-1, 0], [1, 0]))
@@ -24,7 +23,6 @@ def main():
     plt.figure("Loop Vector Simulation", figsize=(8, 8))
     plot_vectors(l.generate_loop([1, 1], [-1, 1], [-1, -1], [1, -1]))
     plt.show()
-
 
 
 if __name__ == '__main__':

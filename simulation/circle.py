@@ -26,6 +26,7 @@ def plot_circle(point_list):
         plt.pause(1)
     plt.show()
 
+
 def main():
     # Set the plot boundaries
     plt.figure("Circle", figsize=(8, 8))
@@ -38,7 +39,4 @@ def main():
 
 
 if __name__ == "__main__":
-   main()
-
-
-
+    main()

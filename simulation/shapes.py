@@ -86,8 +86,8 @@ def main():
     plt.ylim(-4, 4)
 
     # Some example loops
-    # draw_loop([1, 1], [-1, 1], [-1, -1], [1, -1])
-    draw_loop([1, 0], [0, 1], [-1, 0], [0, -1])
+    # plot_loop([1, 1], [-1, 1], [-1, -1], [1, -1])
+    plot_loop([1, 0], [0, 1], [-1, 0], [0, -1])
     # plot_shape(generate_quadrilateral([1, 0], [0, 1], [-1, 0], [0, -1]))
 
     plt.show()
