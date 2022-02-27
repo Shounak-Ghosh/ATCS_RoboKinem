@@ -1,4 +1,4 @@
-import osgit
+import os
 import sys
 import matplotlib.pyplot as plt
 import numpy as np
@@ -30,14 +30,14 @@ def method2():
         y_dist = point_list[i + 1][1] - point_list[i][1]
         # vector_list.append([x_dist,y_dist])
         # plt.plot(x_dist,y_dist,'bo')
-    #     plt.plot(i, x_dist, 'ro')
-    #     plt.plot(i, y_dist, 'go')
-    #     plt.draw()
+        plt.plot(i, x_dist, 'ro')
+        plt.plot(i, y_dist, 'go')
+        plt.draw()
     plt.show()
 
 
 def main():
-    # plt.figure("Circle Vector Simulation", figsize=(8, 8))
+    plt.figure("Circle Vector Simulation", figsize=(8, 8))
     # plt.xlim(-2, 2)
     # plt.ylim(-2, 2)
     method2()

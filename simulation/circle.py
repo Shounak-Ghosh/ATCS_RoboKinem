@@ -8,7 +8,7 @@ def generate_circle(point_a, point_b):
     x_dist = point_b[0] - point_a[0]
     y_dist = point_b[1] - point_a[1]
     dist = (x_dist ** 2 + y_dist ** 2) ** .5
-    numpoints = 60
+    numpoints = 360
     t = np.linspace(0, 2 * np.pi, numpoints)
     sign = -1 if x_dist > 0 else 1
 
