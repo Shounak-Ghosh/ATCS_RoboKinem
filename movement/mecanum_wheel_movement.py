@@ -60,6 +60,10 @@ pushButton = 26  # pin 37, GPIO 26
 GPIO.setup(pushButton, GPIO.IN)
 oldPushb = 0
 
+# TODO replace with actual values
+ROBOT_LENGTH = 1
+ROBOT_WIDTH = 1
+
 
 def readPush():
     global oldPushb
@@ -205,7 +209,7 @@ class Encoder:
         # correct for side of car left goes - otherwise
         if self.time != 0 and self.time != self.lastTime:  # store speed in clicks/nS
             self.speed = self.side * (self.counter - self.lastCounter) / (
-                        self.time - self.lastTime)
+                    self.time - self.lastTime)
         else:
             self.speed = 0
 
@@ -457,6 +461,29 @@ def test_readPush():
 def destroy():
     pwmOEn = 1  # disable outputs of PCA9685
     GPIO.cleanup()
+
+
+def move_vector(x, y, w):
+    w1 = y - x + w * (ROBOT_LENGTH + ROBOT_WIDTH)
+    w2 = y + x - w * (ROBOT_LENGTH + ROBOT_WIDTH)
+    w3 = y - x - w * (ROBOT_LENGTH + ROBOT_WIDTH)
+    w4 = y + x + w * (ROBOT_LENGTH + ROBOT_WIDTH)
+
+    # scale to ensure largest movement value is 100
+    # ex. if w1 is largest, w1/(w1/100) = 100
+    scale = max(max(w1, w2, w3, w4), abs(min(w1, w2, w3, w4)))
+    if scale > 1:
+        w1 /= scale / 100
+        w2 /= scale / 100
+        w3 /= scale / 100
+        w4 /= scale / 100
+
+    print(w1, w2, w3, w4)
+
+    fr.move(w1)
+    fl.move(w2)
+    fl.move(w3)
+    rr.move(w4)
 
 
 def main():
