@@ -19,7 +19,7 @@ First, we need to find the Rasberry Pi's IP.
 Now we must establish a connection between the Pi and our local device.
 
 - Download [FileZilla](https://filezilla-project.org) and connect via the application prompts.
-  - Ex. Username: pi, Password: kinematics2022
+  - Ex. Host: `xx.xx.xx.xx`, Username: pi, Password: kinematics2022, Port: 22
 - Transfer files accordingly via the FileZilla application.
 - Use `ssh pi@xx.xx.xx.xx` on our local terminal. Once a connection is established, we can execute python files on the Pi.
 
