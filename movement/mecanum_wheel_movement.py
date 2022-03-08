@@ -63,6 +63,7 @@ oldPushb = 0
 # TODO replace with actual values
 ROBOT_LENGTH = 1
 ROBOT_WIDTH = 1
+SCALE = 10 ** 4
 
 
 def readPush():
@@ -462,27 +463,32 @@ def destroy():
     pwmOEn = 1  # disable outputs of PCA9685
     GPIO.cleanup()
 
-
+#TODO deal with scaling issues properly
 def move_vector(x, y, w):
     w1 = y - x + w * (ROBOT_LENGTH + ROBOT_WIDTH)
     w2 = y + x - w * (ROBOT_LENGTH + ROBOT_WIDTH)
     w3 = y - x - w * (ROBOT_LENGTH + ROBOT_WIDTH)
     w4 = y + x + w * (ROBOT_LENGTH + ROBOT_WIDTH)
 
+    # w1 *= SCALE
+    # w2 *= SCALE
+    # w3 *= SCALE
+    # w4 *= SCALE
+
     # scale to ensure largest movement value is 100
     # ex. if w1 is largest, w1/(w1/100) = 100
-    scale = max(max(w1, w2, w3, w4), abs(min(w1, w2, w3, w4)))
-    if scale > 1:
-        w1 /= scale / 100
-        w2 /= scale / 100
-        w3 /= scale / 100
-        w4 /= scale / 100
+    # scale = max(max(w1, w2, w3, w4), abs(min(w1, w2, w3, w4)))
+    # if scale > 100:
+    #     w1 /= scale / 100
+    #     w2 /= scale / 100
+    #     w3 /= scale / 100
+    #     w4 /= scale / 100
 
     print(w1, w2, w3, w4)
 
     fr.move(w1)
     fl.move(w2)
-    fl.move(w3)
+    rl.move(w3)
     rr.move(w4)
 
 
@@ -492,8 +498,7 @@ def main():
                   rear_right(100, 2)]
     #    while True:
     for x in actionList:
-        x;
-
+        x
 
 #   test_readPush()
 #   test_move()
