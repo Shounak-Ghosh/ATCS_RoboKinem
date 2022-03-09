@@ -1,13 +1,16 @@
 import mecanum_wheel_movement as drive
+import argparse
 import time
 import math
 import os
 import sys
+
 script_dir = os.path.dirname(__file__)
 simulation_dir = os.path.join(script_dir, '..', 'simulation')
 sys.path.append(simulation_dir)
 import circle as c
-import shapes as s
+import shapes as sh
+import spline as sp
 
 
 def move_shape(point_list):
@@ -27,18 +30,31 @@ def move_shape(point_list):
     drive.stop_car()
 
 
-def main():
-    c_scale = 2000
-    circle_point_list = c.generate_circle([-c_scale, 0], [c_scale, 0])
-    l_scale = 1
-    loop_point_list = s.generate_loop([1, 1], [-1, 1], [-1, -1], [1, -1])
-    diagonal_loop_point_list = s.generate_loop([l_scale, 0], [0, l_scale], [-l_scale, 0], [0, -l_scale])
-    move_shape(loop_point_list)
+def main(path):
+    match path:
+        case 0:
+            c_scale = 2000  # scale because number of points is fixed to 360
+            circle_point_list = c.generate_circle([-c_scale, 0], [c_scale, 0])
+            move_shape(circle_point_list)
+        case 1:
+            loop_point_list = sh.generate_loop([1, 1], [-1, 1], [-1, -1],
+                                               [1, -1])
+            diagonal_loop_point_list = sh.generate_loop([1, 0], [0, 1], [-1, 0],
+                                                        [0, -1])
+            move_shape(loop_point_list)
+        case 2:
+            spline_point_list = sp.generate_spline([[0, 1], [1, 3], [2, 2]])
+            move_shape(spline_point_list)
 
 
 if __name__ == '__main__':
+    parser.add_argument("-p", "--path",
+                        help="0 for circle, 1 for loop, 2 for spline",
+                        type=int,
+                        default=1)
+    args = parser.parse_args()
     try:
-        main()
+        main(args.path)
     except KeyboardInterrupt:
         drive.stop_car()  # stop movement
         drive.destroy()  # clean up GPIO

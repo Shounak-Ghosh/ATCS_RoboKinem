@@ -24,7 +24,7 @@ def plot_circle(point_list):
     for point in point_list:
         plt.plot(point[0], point[1], 'bo')
         plt.draw()
-        plt.pause(1)
+        plt.pause(.01)
     plt.show()
 
 
@@ -35,7 +35,6 @@ def main():
     plt.ylim(-2, 2)
 
     point_list = generate_circle([-1, 0], [1, 0])
-    print(point_list)
     plot_circle(point_list)
 
 

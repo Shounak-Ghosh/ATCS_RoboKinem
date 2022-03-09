@@ -2,7 +2,8 @@ import matplotlib.pyplot as plt
 import math
 import numpy as np
 import circle as c
-import shapes as s
+import shapes as sh
+import spline as sp
 import time
 
 
@@ -32,14 +33,15 @@ def main():
     # plt.xlabel("Time")
     # plot_vectors(c.generate_circle([-c_scale, 0], [c_scale, 0]))
 
-    l_scale = 1
+
     plt.figure("Loop Vector Simulation", figsize=(8, 8))
     plt.ylabel("Vector values")
     plt.xlabel("Time")
-    plot_vectors(s.generate_loop([1, 1], [-1, 1], [-1, -1], [1, -1]))
+    # plot_vectors(sh.generate_loop([1, 1], [-1, 1], [-1, -1], [1, -1]))
     # Diagonal loop
-    # plot_vectors(s.generate_loop([l_scale, 0], [0, l_scale], [-l_scale, 0],
-    #                              [0, -l_scale]))
+    # plot_vectors(sh.generate_loop([1, 0], [0, 1], [-1, 0],
+    #                                             [0, -1]))
+    plot_vectors(sp.generate_spline([[0, 1], [1, 3], [2, 2]]))
     plt.show()
 
 
