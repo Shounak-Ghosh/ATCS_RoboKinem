@@ -41,7 +41,13 @@ def main():
     # Diagonal loop
     # plot_vectors(sh.generate_loop([1, 0], [0, 1], [-1, 0],
     #                                             [0, -1]))
-    plot_vectors(sp.generate_spline([[0, 1], [1, 3], [2, 2]]))
+
+    x = [0, 1, 2, 3]
+    y = [0, 3, 2, 4]
+    point_list =[]
+    for i in range(len(x)):
+        point_list.append([x[i], y[i]])
+    plot_vectors(sp.generate_spline(point_list))
     plt.show()
 
 

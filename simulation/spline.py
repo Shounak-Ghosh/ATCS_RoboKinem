@@ -31,24 +31,32 @@ def plot_shape(point_list):
 def main():
     plt.style.use('seaborn-poster')
 
-    x = [0, 1, 2]
-    y = [1, 3, 2]
+    x = [0, 1, 2, 3]
+    y = [0, 3, 2, 4]
+    min_x = x[0]
+    max_x = x[0]
+    point_list = []
+    for i in range(len(x)):
+        min_x = min(min_x, x[i])
+        max_x = max(max_x, x[i])
+        point_list.append([x[i], y[i]])
 
     # use bc_type = 'natural' adds the constraints as we described above
     f = CubicSpline(x, y, bc_type='natural')
-    x_new = np.linspace(0, 2, 100)
+    x_new = np.linspace(min_x, max_x, 100)
     y_new = f(x_new)
 
-    plt.figure("Smooth Cubic Spline Interpolation", figsize=(10, 8))
+    plt.figure("Smooth Cubic Spline Interpolation", figsize=(8, 8))
     plt.plot(x_new, y_new, 'b')
     plt.plot(x, y, 'ro')
     plt.title('Smooth Cubic Spline Interpolation')
     plt.xlabel('x')
     plt.ylabel('y')
 
-    plt.figure("Point Cubic Spline Interpolation", figsize=(10, 8))
-    plot_shape(generate_spline([[0, 1], [1, 3], [2, 2]]))
+    plt.figure("Point Cubic Spline Interpolation", figsize=(8, 8))
+    plot_shape(generate_spline(point_list))
     plt.plot(x, y, 'rD')
+    plt.draw()
     plt.title('Point Cubic Spline Interpolation')
     plt.xlabel('x')
     plt.ylabel('y')

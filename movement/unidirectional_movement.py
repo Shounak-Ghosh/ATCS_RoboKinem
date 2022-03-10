@@ -31,30 +31,34 @@ def move_shape(point_list):
 
 
 def main(path):
-    match path:
-        case 0:
+    if path == 0:
             c_scale = 2000  # scale because number of points is fixed to 360
             circle_point_list = c.generate_circle([-c_scale, 0], [c_scale, 0])
             move_shape(circle_point_list)
-        case 1:
+    elif path == 1:
             loop_point_list = sh.generate_loop([1, 1], [-1, 1], [-1, -1],
                                                [1, -1])
             diagonal_loop_point_list = sh.generate_loop([1, 0], [0, 1], [-1, 0],
                                                         [0, -1])
             move_shape(loop_point_list)
-        case 2:
-            spline_point_list = sp.generate_spline([[0, 1], [1, 3], [2, 2]])
-            move_shape(spline_point_list)
+    elif path == 2:
+        x = [0, 1, 2, 3]
+        y = [0, 3, 2, 4]
+        point_list = []
+        for i in range(len(x)):
+            point_list.append([x[i], y[i]])
+        spline_point_list = sp.generate_spline(point_list)
+        move_shape(spline_point_list)
 
 
 if __name__ == '__main__':
-    parser.add_argument("-p", "--path",
-                        help="0 for circle, 1 for loop, 2 for spline",
-                        type=int,
-                        default=1)
-    args = parser.parse_args()
+    # parser.add_argument("-p", "--path",
+    #                     help="0 for circle, 1 for loop, 2 for spline",
+    #                     type=int,
+    #                     default=1)
+    # args = parser.parse_args()
     try:
-        main(args.path)
+        main(2)
     except KeyboardInterrupt:
         drive.stop_car()  # stop movement
         drive.destroy()  # clean up GPIO
