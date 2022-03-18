@@ -22,15 +22,5 @@ Now we must establish a connection between the Pi and our local device.
 - Transfer files accordingly via the FileZilla application.
 - Use `ssh pi@xx.xx.xx.xx` on our local terminal. Once a connection is established, we can execute python files on the Pi.
 
-## Directories
-### matrices
-Solutions to select exercises from Ch.3 of "Modern Robotics".
-### movement
-Contains files to be executed on the Raspberry Pi and induce robot movement.
-### simulation
-Contains visualization files to verify robot movement.
-### water_boiler
-Example application of PID. 
-
 
 
