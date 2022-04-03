@@ -2,8 +2,7 @@
 
 ## Dependencies
 ```
-python -m pip install numpy scipy matplotlib ipython jupyter pandas sympy nose
-python -m pip install adafruit-circuitpython-servokit
+pip install -r requirements.txt
 ```
 All code formatted in accordance with `flake8`.
 
