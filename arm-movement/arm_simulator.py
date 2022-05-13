@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import time
 from IPython.display import display, clear_output
-import Matrices.frame as fr
+import frame as fr
 
 #units are in mm
 

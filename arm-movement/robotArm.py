@@ -1,6 +1,6 @@
 import time
 import numpy as np
-import Matrices.frame as fr
+import frame as fr
 from board import SCL,SDA
 import busio
 from adafruit_pca9685 import PCA9685

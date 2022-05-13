@@ -1,6 +1,7 @@
 import time
+import smbus
 import numpy as np
-import Matrices.frame as fr
+import frame as fr
 from board import SCL, SDA
 import busio
 from adafruit_pca9685 import PCA9685
@@ -15,6 +16,7 @@ pca = PCA9685(i2c, address=0x41)           # adafruit_pca9685.PCA9685(i2c)   ins
 pca.frequency = 50  # set pwm clock in Hz (debug 60 was 1000)
 # usage: pwm_channel = pca.channels[0] instance example
 #        pwm_channel.duty_cycle = speed (0 .. 100)  speed example
+bus = smbus.SMBus(1)
 
 L0 = 75
 L1 = 177
@@ -129,9 +131,9 @@ screwLoc = [[100], [0], [-30], [140], True]
 temp = [np.pi,np.pi/2,0]
 temp = moveTo(initLoc, temp, instant=True)
 # temp = moveTo(over, temp)
-# #temp = moveTo(under, temp)
+# temp = moveTo(under, temp)
 # temp = moveTo(test, temp)
-temp = moveTo(nutLoc, temp)
+# temp = moveTo(nutLoc, temp)
 for i in range(2):
   unscrew()
 unscrew(end=True)
